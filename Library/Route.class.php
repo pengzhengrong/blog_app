@@ -8,10 +8,10 @@ Class Route {
 		$path = explode('/', $pathinfo );
 		// P($path);
 		define('MODULE_NAME', $path[1]);
-		define('CLASS_NAME', $path[2]);
+		define('CONTROLLER_NAME', $path[2]);
 		define('METHOD_NAME',$path[3]);
 		// $this->test();
-		$class = '\\'.MODULE_NAME.'\\Controller\\'.CLASS_NAME.'Controller';
+		$class = '\\'.MODULE_NAME.'\\Controller\\'.CONTROLLER_NAME.'Controller';
 		// $class = CLASS_1;
 		// $class = new $class;
 		P('route: '.$class);

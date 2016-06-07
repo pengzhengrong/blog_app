@@ -2,6 +2,7 @@
 
 function P($param){
 	if( is_array($param) ) {
+		echo '<pre>';
 		print_r( $param );
 		return;
 	}

@@ -10,6 +10,8 @@ Class BlogController extends \Library\Controller {
 	public function index() {
 		// $this->display();
 		P('this is blog index');
+		$this->title = 'php';
+		$this->content = 'content';
 		$this->display();
 	}
 

@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-06-06 20:28:46
-  from "/home/pzr/workspace/blog_app/Home/View/templates/index.html" */
+/* Smarty version 3.1.29, created on 2016-06-07 10:08:19
+  from "/home/pzr/workspace/blog_app/Home/View/Blog_index.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57556c7ea94297_65118067',
+  'unifunc' => 'content_57562c93d4b911_11135478',
   'file_dependency' => 
   array (
-    '451b7964966646839a8243532d0c4d71e86b1287' => 
+    '4771032659e89767441c92f62d342159cde92120' => 
     array (
-      0 => '/home/pzr/workspace/blog_app/Home/View/templates/index.html',
-      1 => 1465216036,
+      0 => '/home/pzr/workspace/blog_app/Home/View/Blog_index.html',
+      1 => 1465264636,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57556c7ea94297_65118067 ($_smarty_tpl) {
+function content_57562c93d4b911_11135478 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//Ddiv XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/Ddiv/xhtml1-transitional.ddiv">
 <html xmlns="http://www.w3.org/1999/xhtml">

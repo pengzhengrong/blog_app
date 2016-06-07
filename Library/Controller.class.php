@@ -16,22 +16,27 @@ abstract Class  Controller {
 		spl_autoload_unregister('\Library\Blog::autoload');
 		require 'Smarty/Smarty.class.php';
 		$smarty = new \Smarty();
-		$smarty->template_dir = SMARTY_PATH.'templates/';
-		$smarty->compile_dir = SMARTY_PATH.'templates_c/';
-		$smarty->config_dir = SMARTY_PATH.'configs/';
-		$smarty->cache_dir = SMARTY_PATH.'cache/';
+		$smarty->template_dir = 'Home/View/';
+		$smarty->compile_dir = 'Runtime/Temp/';
+		$smarty->config_dir = 'Runtime/Config/';
+		$smarty->cache_dir = 'Runtime/Cache/';
 		// P( $smarty->getConfig_dir() );
 		$this->smarty = $smarty;
 		// echo 'controller';
 	}
 
 	Public function display() {
-		// P('display');
-		// P($this->smarty->getTemplate_dir() );
-		$this->smarty->assign('title','php');
-		$this->smarty->assign('content','smarty');
-		header ( 'Content-type: text/html;charset:utf8' );
-		$this->smarty->display('index.html');
+		P(CONTROLLER_NAME.'_'.METHOD_NAME);
+		$template = CONTROLLER_NAME.'_'.METHOD_NAME.'.html';
+		$this->smarty->display($template);
+	}
+
+	Public function assign($key , $value) {
+		$this->smarty->assign($key,$value);
+	}
+
+	Public function __set($key, $value) {
+		$this->smarty->assign($key,$value);
 	}
 }
 
