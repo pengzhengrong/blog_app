@@ -1,9 +1,8 @@
 <?php
-namespace Library;
+namespace Think;
 Class Route {
 
 	Public function __construct(){
-		P($_SERVER["PATH_INFO"]);
 		$pathinfo = $_SERVER['PATH_INFO'];
 		$path = explode('/', $pathinfo );
 		// P($path);
@@ -14,7 +13,6 @@ Class Route {
 		$class = '\\'.MODULE_NAME.'\\Controller\\'.CONTROLLER_NAME.'Controller';
 		// $class = CLASS_1;
 		// $class = new $class;
-		P('route: '.$class);
 		// $controller = new $class;
 		// $controller->METHOD;
 		// call_user_func( array( $class, METHOD ) );

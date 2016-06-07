@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 // require_once 'Library/Controller.class.php';
-Class BlogController extends \Library\Controller {
+Class BlogController extends \Think\Controller {
 
 	/*Public function __construct() {
 		parent::__construct();

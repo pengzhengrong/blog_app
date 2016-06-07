@@ -1,6 +1,6 @@
 <?php
-namespace Library;
-Class DB {
+namespace Think;
+Class Db {
 
 	public $pdo;
 	private $PDOStatement;
