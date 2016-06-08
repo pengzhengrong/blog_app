@@ -5,8 +5,21 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="background-color: yellow">
+<body style="background-color: gray">
 {$content}
+<table>
+{foreach $rest as $v}
+<tr>
+<td>{$v['id']}</td>
+<td>{$v['title']}</td>
+{assign var="vars" value=array('id-'|cat:$v['id'])}
+<!-- <td><a href="{U url='/Blog/index/p/2'}">EDIT</a></td> --><!--  $vars=array('id'=>$v['id'])} -->
+
+<td><a href="{U url=MODULE_NAME|cat:'/Blog/index' vars=$vars}">EDIT</a></td>
+{/foreach}
+</tr>
+</table>
+
 </body>
 <script type="text/javascript">
 	// alert(1);
