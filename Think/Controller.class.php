@@ -6,7 +6,43 @@ namespace Think;
 
 define('SMARTY_PATH','Home/View/');
 
-abstract Class  Controller {
+abstract Class Controller {
+
+	public $view;
+
+	public $config = array();
+
+	Public function __construct() {
+		$this->view = new View();
+		if( method_exists($this, '_initialize') ) {
+			$this->_initialize();
+		}
+	}
+
+	Public function display($tpl='') {
+		$this->view->display($tpl);
+	}
+
+	Public function assign($key , $value) {
+		$this->view->assign($key,$value);
+	}
+
+	Public function __set($key, $value) {
+		$this->config[$key] = $value;
+		$this->view->assign($key,$value);
+	}
+
+	Public function __get($key) {
+		return $this->config[$key];
+	}
+
+	Public function register_function() {
+		$this->view>register_function('U','U');
+	}
+
+}
+
+/*abstract Class  Controller {
 
 	protected $smarty;
 
@@ -40,7 +76,7 @@ abstract Class  Controller {
 	Public function register_function() {
 		$this->smarty>register_function('U','U');
 	}
-}
+}*/
 
 
 

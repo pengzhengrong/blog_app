@@ -2,6 +2,11 @@
 namespace Think;
 
 define('EXT','.php');
+define('EXT_C', '.class.php');
+define('__PUBLIC__','/Public/Home');
+define('PHP_SELF',$_SERVER['PHP_SELF']);
+
+
 
 Class Think {
 
@@ -9,9 +14,10 @@ Class Think {
 
 	Public static function start() {
 		spl_autoload_register(__NAMESPACE__.'\Think::autoload');
+		set_exception_handler('myException');
 		self::load_config();
-		self::defined_vars();
-		$route = new Route();
+		self::load_lib();
+		\Think\App::init();
 	}
 
 	Public static  function load_config() {
@@ -24,6 +30,11 @@ Class Think {
 		// P($_config);
 	}
 
+	Public static function load_lib() {
+		include 'Think/Route'.EXT_C;
+		include 'Think/App'.EXT_C;
+	}
+	
 	Public static function  autoload( $class ) {
 		// P('autoload: '.$class);
 		$class = str_replace('\\', '/', $class);
@@ -34,35 +45,10 @@ Class Think {
 		}
 		if( file_exists( $class)){
 			include $class;
-			// P('autoload '.$class.' success');
 			return true;
 		}else{
-			// P('autoload '.$class.' FAILED');
 			return false;
 		}
-	}
-
-	Public static function defined_vars() {
-		define( 'REQUEST_METHOD' , server('REQUEST_METHOD') );
-		define( 'IS_GET' , REQUEST_METHOD==='GET'?true:false );
-		define( 'IS_POST' , IS_GET?0:1);
-		$pathinfo = server('PATH_INFO');
-		$path = explode('/', $pathinfo );
-		P($path);
-		define('MODULE_NAME', $path[1]);
-		define('CONTROLLER_NAME', $path[2]);
-		define('METHOD_NAME',$path[3]);
-		$vars = array_reverse( array_slice( $path ,4 ) );
-		if( IS_GET ) {
-			while( count($vars) ) {
-				$_GET[array_pop($vars)] = array_pop($vars);
-			}
-		}elseif( IS_POST ) {
-			while( count($vars) ) {
-				$_POST[array_pop($vars)] = array_pop($vars);
-			}
-		}
-		
 	}
 
 }

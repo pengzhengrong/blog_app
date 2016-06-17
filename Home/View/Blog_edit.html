@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//Ddiv XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/Ddiv/xhtml1-transitional.ddiv">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{$title}</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: gray">
+	<table>
+		<tr>
+			<td>{$rest.id}</td>
+		</tr>
+		<tr>
+			<td>{$rest['title']}</td>
+		</tr>
+		<tr>
+			<td>{$rest['content']}</td>
+		</tr>
+		<tr>
+			<td><a href="{U url=MODULE_NAME|cat:'/Blog/edit' vars='/id/'|cat:$rest['id']}">EDIT</a></td>
+		</tr>
+	</table>
+
+</body>
+<script type="text/javascript">
+	// alert(1);
+</script>
+</html>
